@@ -5,6 +5,8 @@ const cors = require('cors');
 const app = express();
 const connectDB = require('./database/database');
 const Stations = require('./database/models/station');
+const Amenities = require('./database/models/amenities');
+const StationSchedule = require('./database/models/stationschedule');
 
 // app.use((req, res, next) => {
 //   res.header("Access-Control-Allow-Origin", "*");
@@ -30,12 +32,33 @@ app.listen(PORT, () => console.log(`listening on ${PORT}`));
 connectDB();
 // mongo DB api
 
-app.get('/data/api/get/stations', (req, res) => {
+app.get('/api/get/all/stations', (req, res) => {
   Stations.find({})
     .then((result) => {
-      res.send(result)
+      res.send(result);
     })
       .catch((err) => {
         console.log(err)
       });
+});
+
+app.get('/api/get/all/amenities', (req, res) => {
+  Amenities.find({})
+    .then((result) => {
+      res.send(result);
+    })
+      .catch((err) => {
+        console.log(err);
+      });
 })
+
+
+app.get('/api/get/all/stationschedules', (req, res) => {
+  StationSchedule.find({})
+    .then((result) => {
+      res.send(result);
+    })
+     .catch((error) => {
+      console.log(error);
+     })
+});
