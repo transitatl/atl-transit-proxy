@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const Stations = require('./models/station')
-const CONNECTION_STRING = "mongodb+srv://transitatl:Rg3o8MkHdu7MZY8W@cluster0.nkmqyiv.mongodb.net/TransitAtlTrain?retryWrites=true&w=majority";
+const CONNECTION_STRING = process.env.DB_STRING;
 
 const connectDB = async () => {
   try {
@@ -17,21 +16,6 @@ const connectDB = async () => {
   }
 };
 
-
-
-const getAllStations = async () => {
-  try {
-    const stations = await Stations.find({});
-    return stations;
-  } catch (err) {
-    console.error(err);
-    throw err;
-  }
-};
-
-module.exports = {
-  getAllStations
-};
 
 module.exports = connectDB; 
 

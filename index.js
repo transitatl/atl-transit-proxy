@@ -1,12 +1,13 @@
+require('dotenv').config();
 const express = require("express");
 const requestURL = require("./services/service.js");
-const MongoClient = require('mongodb').MongoClient;
 const cors = require('cors');
 const app = express();
 const connectDB = require('./database/database');
 const Stations = require('./database/models/station');
 const Amenities = require('./database/models/amenities');
 const StationSchedule = require('./database/models/stationschedule');
+
 
 // app.use((req, res, next) => {
 //   res.header("Access-Control-Allow-Origin", "*");
