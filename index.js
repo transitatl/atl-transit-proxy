@@ -30,7 +30,7 @@ app.get("/arrivals", (req, res) => {
 const PORT = process.env.PORT || 3000;
 
 connectDB().then(() => {
-  app.listen(PORT, () => console.log(`listening on ${PORT}`));
+  app.listen(PORT, () => console.log(`listening on ${PORT} def`));
 })
 
 // mongo DB api
